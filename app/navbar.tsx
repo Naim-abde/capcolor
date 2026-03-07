@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 
 const links = [
-  { href: "/services", label: "Services" },
+  { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -56,6 +56,7 @@ const Navbar = () => {
   const navbarVariants = {
     initial: isHomePage
       ? {
+        
           y: -100,
           opacity: 0,
         }
@@ -93,8 +94,10 @@ const Navbar = () => {
       >
         <div className="mx-auto flex justify-between items-center">
           <Link href={"/"} className="flex items-center space-x-1">
-            <div className="rounded-full bg-black w-6 h-6 " />
-            <span className="text-xl font-bold">Awesome Studio</span>
+            <div className=" " />
+            <span className="text-xl font-bold">
+              <img width="180" height="300-" src="/logo-site (1).png" alt="CapColor Logo" />
+            </span>
           </Link>
 
           {/* desktop menu */}

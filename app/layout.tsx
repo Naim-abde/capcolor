@@ -10,8 +10,12 @@ const font = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Awesome Studio",
+  title: "CapColor – Agence de communication",
   description: "A full-service digital innovation partner ",
+  icons: {
+    icon: "/logo-site.png", // اللوغو الصغير
+    apple: "/logo-site.png", // اللوغو فاش كيتحط الموقع فـ iPhone
+  },
 };
 
 export default function RootLayout({

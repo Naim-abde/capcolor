@@ -4,16 +4,16 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const companies = [
-  { name: "coca-cola", logo: "/logo-1.svg" },
-  { name: "amazon", logo: "/logo-2.svg" },
-  { name: "forbes", logo: "/logo-3.svg" },
-  { name: "booking", logo: "/logo-4.svg" },
-  { name: "microsoft", logo: "/logo-5.svg" },
-  { name: "paypal", logo: "/logo-6.svg" },
-  { name: "redbull", logo: "/logo-1.svg" },
-  { name: "salesforce", logo: "/logo-2.svg" },
-  { name: "spotify", logo: "/logo-3.svg" },
-  { name: "lift", logo: "/logo-4.svg" },
+  { name: "LG", logo: "/lg-electronics.svg" },
+  { name: "Orange", logo: "/orange-3.svg" },
+  { name: "Aramex", logo: "/aramex-logo-1.svg" },
+  { name: "Mercedes", logo: "/mercedes-benz-9.svg" },
+  { name: "axa", logo: "/axa-768.svg" },
+  { name: " AlBarid bank", logo: "/baridbank.svg" },
+  { name: "Royal air maroc", logo: "/royal-air-maroc-1.svg" },
+  { name: "chergui", logo: "/chergui.png" },
+  { name: "pizza hut", logo: "/pizza-hut.svg" },
+  { name: "2M", logo: "/2m.png" },
 ];
 
 const firstRow = companies.slice(0, Math.ceil(companies.length / 2));
@@ -47,10 +47,10 @@ const Trusted = () => {
     )}>
       <div className="mb-8 text-center">
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-          Trusted by industry leaders worldwide
+          Partenaire des sociétés nationales et internationales
         </h2>
         <p className="text-gray-600">
-          Our platform is used by the world&apos;s most innovative companies.
+          Innover par l'impression de haut niveau
         </p>
 
       </div>

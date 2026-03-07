@@ -103,11 +103,11 @@ const Hero = () => {
             className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
           >
             <motion.span className="inline-block" variants={contentVariants}>
-              Empowering businesses
+              Propulser les entreprises
             </motion.span>
             <br />
             <motion.span className="inline-block" variants={contentVariants}>
-              with Artificial Intelligence
+              par l'impression
             </motion.span>
           </motion.h1>
 
@@ -115,37 +115,38 @@ const Hero = () => {
             variants={contentVariants}
             className="text-xl text-[#7b7b7b] mb-8"
           >
-            At Awesome Studio designs come
+            Chez CapColor vos projets
             <br />
-            to life with our great team
+            prennent vie avec passion
           
           </motion.p>
 
-          <motion.div
-            variants={buttonVariants}
-            initial={hasAnimated ? "visible" : "hidden"}
-            animate="visible"
-            className="flex gap-x-3 md:gap-x-6 justify-center mb-10"
-          >
-            <Link
-              href={"/projects"}
-              className="bg-black text-white 
-              px-6 md:px-8 py-3 rounded-full text-lg font-medium transition-all hover:shadow-lg"
-            >
-             View Our Work
-            </Link>
+      <motion.div
+  variants={buttonVariants}
+  initial={hasAnimated ? "visible" : "hidden"}
+  animate="visible"
+  className="flex gap-x-3 md:gap-x-6 justify-center mb-10"
+>
+  <Link
+    href={"/projects"}
+    className="bg-blue-600 text-white
+    px-6 md:px-8 py-3 rounded-full text-lg font-medium
+    transition-all hover:bg-blue-700 hover:shadow-xl"
+  >
+    Projets
+  </Link>
 
-            <motion.a
-              href="https://meetings.hubspot.com/productizedos/epic-labs?uuid=fca92f30-4111-4445-9498-af335bb840af"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-red-500 text-white
-               px-6 md:px-8 py-3 rounded-full text-lg
-                font-medium hover:bg-red-600 transition-all hover:shadow-lg inline-block"
-            >
-              Book a meeting
-            </motion.a>
-          </motion.div>
+  <motion.a
+    href="https://meetings.hubspot.com/productizedos/epic-labs?uuid=fca92f30-4111-4445-9498-af335bb840af"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-rose-500 text-white
+    px-6 md:px-8 py-3 rounded-full text-lg
+    font-medium hover:bg-rose-600 transition-all hover:shadow-xl inline-block"
+  >
+    Contact
+  </motion.a>
+</motion.div>
         </div>
       </motion.div>
 
@@ -166,7 +167,7 @@ const Hero = () => {
           className="relative w-full md:w-auto"
         >
           <video
-            src="/hero-video.mp4"
+            src="/vedio.mp4"
             autoPlay
 
             muted

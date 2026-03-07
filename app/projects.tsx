@@ -7,90 +7,110 @@ import { useState } from "react";
 
 const projects = [
     {
-      src: "/adidas.jpg",
-      name: "Adidas",
-      logo: "/adidas-logo.png",
-      description: "Created Adidas back to school campaign",
+      src: "/lynxk.jpeg",
+      name: "Lynx Optique",
+      logo: "",
+      type: "Enseigne",
+      detail: "Conception et pose d'une façade moderne en panneau évidé noir pour Lynx Optique. L'ensemble est valorisé par un logo lumineux aux couleurs blanc et orange.",
+      description: "Magasin d'optique Lynx au Maârif",
       className: "",
     },
     {
-      src: "/airbnb.jpg",
-      name: "Airbnb",
-      logo: "/airbnb-logo.png",
-      description: "Designed Airbnb landing page",
+      src: "/dolce.jpeg",
+      name: "Dolce & Gabbana",
+      logo: "gg",
+      detail :  "Réalisation d'un panneau publicitaire haut de gamme mettant en avant la collection eyewear. Le visuel combine élégance et modernité avec un portrait sous hijab sublimant les montures.",
+      description: "Marque de luxe italienne emblématique",
       className: "",
+      type:"PLV"
     },
     {
-      src: "/audi.jpg",
-      name: "Audi",
-      logo: "/audi-logo.png",
-      description: "Developed Audi car configurator",
+      src: "/chanel.jpeg",
+      name: "chanel",
+      logo: "/",
+      description: "Référence mondiale du luxe absolu",
+      detail : "Installation d'un panneau publicitaire épuré sur fond blanc pour la gamme optique. Le visuel met en scène l'élégance du regard avec un focus sur les montures iconiques.",
+
+      className: "",
+      type:"PLV"
+    },
+    {
+      src: "/bur.jpeg",
+      name: "burberry",
+      logo: "/",
+      description: "Référence mondiale du style britannique",
+      detail : "Conception d'une enseigne de prestige sur fond noir profond avec marquage doré. L'installation surplombe le magasin pour affirmer l'identité luxueuse et classique de la marque.",
+      className: "",
+      type:"Enseigne"
+    },
+    {
+      src: "/swar.jpeg",
+      name: "Swarovski",
+      logo: "/",
+      description: "Le leader mondial du cristal",
+      detail : "Réalisation d'un panneau évidé premium au design épuré en bleu ciel iconique. L'espace est magnifié par des visuels d'Ariana Grande mettant en valeur les collections optiques.",
+      type:"Aménagement",
   
       className: "",
     },
     {
-      src: "/paypal.jpg",
-      name: "Paypal",
-      logo: "/paypal-logo.png",
-      description: "Integrated Paypal payment gateway",
-  
+      src: "/sungl.jpeg",
+      name: "Sunglass Store",
+      logo: "/",
+      description: "Magasin de Lunettes 100% solaire",
+      detail : "Habillage publicitaire dynamique mettant en scène des icônes mondiales telles que Kendall Jenner. Une signalétique d'impact qui positionne le magasin comme une référence mode et lifestyle.",
+
       className: "",
+      type:"Habillage"
     },
     {
-      src: "/sony.jpg",
-      name: "Sony",
-      logo: "/sony-logo.png",
-      description: "Developed Sony Playstation website",
-  
+      src: "/lacoste.jpg",
+      name: "Lacoste",
+      logo: "/",
+      description: "L'élégance sportive à la française",
+      detail : "Aménagement d'une façade sobre et élégante sur un fond noir mat. L'installation met en relief l'enseigne Lacoste pour un rendu visuel à la fois minimaliste et prestigieux.",
+
       className: "",
+      type:"Aménagement"
     },
     {
-      src: "/under-armour.jpg",
-      name: "Under Armour",
-      logo: "/under-armour-logo.png",
-      description: "Designed Under Armour fitness app",
-  
+      src: "/last.jpeg",
+      name: "burberry",
+      logo: "/",
+      description: "Référence mondiale du style britannique",
+      detail : "Conception d'un panneau publicitaire blanc épuré mettant en scène Selena Gomez dans un style tennis. Le visuel souligne le contraste élégant entre la clarté du fond et les montures noires.",
       className: "",
+      type:"Décoration"
     },
     {
-      src: "/redbull.jpg",
-      name: "Redbull",
-      logo: "/redbull-logo.png",
-      description: "Created Redbull energy drink campaign",
-  
+      src: "/pizza.jfif",
+      name: "pizza",
+      logo: "",
+      description: "Restauration rapide présente partout",
+      detail : "Réalisation d'une enseigne lumineuse iconique sur un fond rouge vif. La structure met en avant l'identité visuelle de Pizza Hut avec une finition éclatante pour une visibilité maximale.",
+      
       className: "",
+      type:"Enseigne"
     },
     {
-      src: "/spalding.jpg",
-      name: "Spalding",
-      logo: "/spalding-logo.png",
-      description: "Designed Spalding basketball landing page",
-  
-      className: "",
-    },
-    {
-      src: "/visa.jpg",
-      name: "Visa",
-      logo: "/visa-logo.png",
-      description: "Integrated Visa payment gateway",
-  
-      className: "",
-    },
-    {
-      src: "/nord.jpg",
-      name: "Nordstrom",
+      src: "/opera.jfif",
+      name: "Opera art gallery",
       logo: "/nord-logo.png",
-      description: "Designed Nordstrom ecommerce website",
-  
+      description: "Galerie d'art moderne et contemporain",
+      detail : "Réalisation d'une enseigne lumineuse iconique sur un fond rouge vif. La structure met en avant l'identité visuelle de Pizza Hut avec une finition éclatante pour une visibilité maximale.",
+
       className: "",
+      type:"Habillage"
     },
     {
-      src: "/zara.jpeg",
-      name: "Zara",
-      logo: "/zara-logo.png",
-      description: "Created Zara fashion campaign",
-  
+      src: "/blaire.jpg",
+      name: "blair auto",
+      logo: "/",
+      description: "Expert en entretien automobile professionnel",
+      detail : "Habillage intégral de la façade en noir mat avec marquage du logo en blanc pur. Un design minimaliste et contrasté qui souligne l'expertise technique et le sérieux de l'enseigne.",
+
       className: "",
+      type:"Habillage"
     },
   ];
 
@@ -170,19 +190,13 @@ const ProjectDetails = ({
           <div className="space-y-4">
             <h3 className="font-semibold text-lg">Project Details</h3>
             <p className="text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {project.detail}
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                Web Design
+                {project.type}
               </span>
-              <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                Branding
-              </span>
-              <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                UI/UX
-              </span>
+             
             </div>
           </div>
         </div>

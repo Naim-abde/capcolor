@@ -72,10 +72,10 @@ const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
 
 const Stats: React.FC = () => {
   const stats = [
-    { number: "100", label: "Clients from 17 Countries" },
-    { number: "280", label: "Millions raised for our clients" },
-    { number: "90", label: "Of our clients come back" },
-    { number: "98", label: "Net Promoting Score" },
+    { number: "18", label: "Années d'expérience" },
+    { number: "950", label: "Projets réalisés" },
+    { number: "30", label: "Equipe expérimenté" },
+    { number: "300", label: "Clients satisfaits" },
   ];
 
   return (
@@ -90,11 +90,10 @@ const Stats: React.FC = () => {
       <Separator className="my-16" />
 
       <div className="flex flex-col md:flex-row items-start justify-between ">
-        <div className="md:w-1/4 mb-8 md:mb-0">
-          <h2 className="text-4xl font-bold">our numbers:</h2>
+        <div className="md:w-2/4 mb-8 md:mb-0">
+          <h2 className="text-3xl font-bold ">CapColor en chiffre : </h2>
           <p className="text-gray-500 mt-4">
-            With every project we take on, we strive to deliver the best results
-            for our clients.
+            Nos projets sont notre fierté
           </p>
         </div>
         <div className="md:w-2/4 w-full">

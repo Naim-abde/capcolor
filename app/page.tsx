@@ -1,6 +1,6 @@
 import Faq from "./faq";
 import Footer from "./footer";
-import Founders from "./founders";
+// import Founders from "./founders";
 import Hero from "./hero";
 import Navbar from "./navbar";
 import { Projects } from "./projects";
@@ -14,9 +14,10 @@ const Home = () => {
  <Hero />
  <Trusted />
  <Projects />
- <Founders />
+ {/* <Founders /> */}
  <Statistics />
  <Faq />
+  
  <Footer />
   </div> );
 }

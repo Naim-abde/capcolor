@@ -49,31 +49,33 @@ const FAQItem : React.FC<FAQItemProps> = ({ question, answer }) => {
 
 const Faq = () => {
   const faqData = [
-    {
-      question: "What are your core services as a UX design and branding firm?",
-      answer: "We specialize in user experience design, brand identity development, and web design services that help businesses create meaningful connections with their audiences."
-    },
-    {
-      question: "What separates Epic from other branding and web design agencies?",
-      answer: "Our unique approach combines strategic thinking with cutting-edge design practices, ensuring each project delivers both aesthetic excellence and measurable results."
-    },
-    {
-      question: "Do you work with clients in different timezones?",
-      answer: "Yes, we have experience working with clients globally and maintain flexible communication schedules to accommodate different time zones."
-    },
-    {
-      question: "How much does hiring you for a design project cost?",
-      answer: "Our pricing varies based on project scope and requirements. We offer customized solutions to meet different budget ranges while maintaining high-quality deliverables."
-    },
-    {
-      question: "What is your design process like?",
-      answer: "Our design process is collaborative and iterative, involving clients at every stage to ensure the final product meets their unique needs and goals while maintaining our high standards of quality."
-    },
-    {
-        question: "How long does it take to complete a typical design project?",
-        answer: "The timeline for each project varies depending on its complexity and scope. We work closely with clients to establish realistic deadlines and ensure timely delivery."
-    }
-  ];
+  {
+    question: "Quels sont les services principaux de Cap Color ?",
+    answer: "Nous sommes experts en impression de haut niveau : enseignes lumineuses, habillage de véhicules, stands événementiels, impression grand format, offset et découpe laser."
+  },
+  {
+    question: "Qu'est-ce qui différencie Cap Color des autres prestataires ?",
+    answer: "Avec plus de 18 ans d'expertise, nous combinons des technologies innovantes avec une approche rigoureuse, garantissant une qualité incomparable et des installations partout au Maroc."
+  },
+  {
+    question: "Assurez-vous l'installation de vos produits ?",
+    answer: "Oui, nous disposons d'équipes techniques qualifiées qui assurent la pose et l'installation de vos supports publicitaires et enseignes sur tout le territoire marocain."
+  },
+  {
+    question: "Quel est le coût d'un projet de signalétique ou d'impression ?",
+    answer: "Nos tarifs sont adaptés selon la complexité et les matériaux choisis. Nous proposons des études et devis gratuits pour offrir des solutions sur mesure au meilleur prix."
+  },
+  {
+    question: "Comment gérez-vous le processus de production ?",
+    answer :"Notre processus est collaboratif : nous commençons par une conception détaillée et une simulation du projet pour vous donner une vision réelle du résultat final. De la validation de la maquette à la fabrication technique, nous validons chaque étape avec vous pour garantir un résultat optimal.",
+    
+  },
+  {
+    question: "Quels sont vos délais de livraison ?",
+    answer: "Les délais dépendent de l'envergure du projet. Grâce à notre parc machine performant, nous nous engageons à respecter des échéances rapides sans compromettre la qualité."
+  }
+];
+  
 
   return (
     <div className=" 
