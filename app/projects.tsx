@@ -93,7 +93,7 @@ const projects = [
       type:"Enseigne"
     },
     {
-      src: "/opera.jfif",
+      src: "/opera.png",
       name: "Opera art gallery",
       logo: "/nord-logo.png",
       description: "Galerie d'art moderne et contemporain",
