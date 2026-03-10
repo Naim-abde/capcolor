@@ -92,16 +92,16 @@ const projects = [
       className: "",
       type:"Enseigne"
     },
-    {
-      src: "/opera.jpg",
-      name: "Opera art gallery",
-      logo: "/nord-logo.png",
-      description: "Galerie d'art moderne et contemporain",
-      detail : "Réalisation d'une enseigne lumineuse iconique sur un fond rouge vif. La structure met en avant l'identité visuelle de Pizza Hut avec une finition éclatante pour une visibilité maximale.",
+    // {
+    //   src: "/opera.jpg",
+    //   name: "Opera art gallery",
+    //   logo: "/nord-logo.png",
+    //   description: "Galerie d'art moderne et contemporain",
+    //   detail : "Réalisation d'une enseigne lumineuse iconique sur un fond rouge vif. La structure met en avant l'identité visuelle de Pizza Hut avec une finition éclatante pour une visibilité maximale.",
 
-      className: "",
-      type:"Habillage"
-    },
+    //   className: "",
+    //   type:"Habillage"
+    // },
     {
       src: "/blaire.jpg",
       name: "blair auto",
