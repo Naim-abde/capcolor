@@ -24,7 +24,7 @@ interface CategoryCounts {
 
 interface Project {
   id: number;
-  name: string;
+  name: string;+
   image: string;
   title: string;
   description: string;
@@ -59,12 +59,12 @@ const Hero = () => {
     { id: 3, name: "Ichrak Centre", image: "/enseigne-3.jpg", title: "Signalétique Lumineuse 3D", description: "Lettres boîtiers en relief aux couleurs vives (blanc et jaune) pour une visibilité optimale.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
     { id: 4, name: "Luxury Patisserie", image: "/enseigne-4.jpg", title: "Élégance Nocturne", description: "Habillage de façade noir mat avec logo lumineux blanc pour un rendu haut de gamme.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
     { id: 5, name: "Walls & Flowers", image: "/enseigne-5.jpg", title: "Concept Store Design", description: "Création d'une devanture artistique alliant nature et signalétique moderne.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
-    { id: 6, name: "Biougnach Pro", image: "/enseigne-6.jpg", title: "Sobriété Institutionnelle", description: "Enseigne grand format on fond noir.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
-    { id: 7, name: "Corporate Signs", image: "/lettrage-relief-12.jpg", title: "Solutions de Marquage", description: "Enseignes extérieures durables.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
-    { id: 8, name: "Retail Display", image: "/enseigne-8.jpg", title: "Attractivité Commerciale", description: "Systèmes lumineux LED.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
-    { id: 9, name: "Publicité Extérieure", image: "/enseigne-9.jpg", title: "Impact Visuel Majeur", description: "Installation de supports publicitaires.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
-    { id: 10, name: "Enseigne Urbaine", image: "/enseigne-10.jpg", title: "Design & Intégration", description: "Intégration harmonieuse de l'identité.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
-    { id: 11, name: "Vision 3D", image: "/enseigne-11.jpg", title: "Conception Technique", description: "Étude et modélisation 3D.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 6, name: "Le dome ", image: "/enseigne-6.jpg", title: "Sobriété Institutionnelle", description: "Enseigne grand format on fond noir.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" }, 
+{ id: 7, name: "Le Dome Clandestin", image: "/enseigne-7.jpg", title: "Création de Logo Professionnel", description: "Conception et réalisation du logo officiel de l’entreprise Le Dome Clandestin.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+{ id: 8, name: "Imperial Linens", image: "/enseigne-8.jpg", title: "Façade Commerciale Moderne", description: "Réalisation de la façade du magasin Imperial Linens en blanc et beige avec une finition élégante.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+{ id: 9, name: "Beauty Now", image: "/enseigne-9.jpg", title: "Logo de Magasin Lumineux", description: "Installation du logo Beauty Now sur la façade du magasin pour renforcer la visibilité de la marque.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+{ id: 10, name: "City Club", image: "/enseigne-10.jpg", title: "Façade et Identité Visuelle", description: "Réalisation de la façade du City Club avec intégration du logo et couleurs blanc et vert lime.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+{ id: 11, name: "Lear", image: "/enseigne-11.jpg", title: "Façade Industrielle Corporate", description: "Habillage de la façade de l’entreprise Lear avec les couleurs blanc et rouge et intégration du logo officiel.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
 
     // --- CATEGORY: Stand ---
     { id: 12, name: "Swarovski Expo", image: "/stand-1.jpg", title: "Luxe Éphémère", description: "Conception d'un espace d'exposition prestigieux.", category: "Stand", size: "col-span-12 md:col-span-8", imageHeight: "h-[500px]" },
