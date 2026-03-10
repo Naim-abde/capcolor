@@ -47,7 +47,7 @@ const Hero = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryId>("all");
 
   const clients: Client[] = [
-    { id: 1, name: "Chanel", image: "chanel-logo.svg", description: "Supports publicitaires de luxe et PLV personnalisée.", category: "PLV" },
+    { id: 1, name: "2M", image: "2m.png", description: "Supports publicitaires de luxe et PLV personnalisée.", category: "PLV" },
     { id: 2, name: "Swarovski", image: "swarovski-logo.svg", description: "Signalétique intérieure et habillage haut de gamme.", category: "Enseigne" },
     { id: 3, name: "D&G", image: "dg-logo.svg", description: "Impression grand format et habillage événementiel.", category: "Habillage" },
   ];
@@ -67,7 +67,7 @@ const Hero = () => {
 { id: 11, name: "Lear", image: "/enseigne-11.jpg", title: "Façade Industrielle Corporate", description: "Habillage de la façade de l’entreprise Lear avec les couleurs blanc et rouge et intégration du logo officiel.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
 
     // --- CATEGORY: Stand -
-    
+
     { id: 12, name: "Swarovski Expo", image: "/stand-1.jpg", title: "Luxe Éphémère", description: "Conception d'un espace d'exposition prestigieux.", category: "Stand", size: "col-span-12 md:col-span-8", imageHeight: "h-[500px]" },
     { id: 13, name: "Espace Modulaire", image: "/stand-2.jpg", title: "Flexibilité Salon", description: "Structure adaptable pour salons.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[500px]" },
     { id: 14, name: "Welcome Desk", image: "/stand-3.jpg", title: "Accueil Professionnel", description: "Comptoirs personnalisés.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
