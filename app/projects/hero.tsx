@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -39,6 +39,7 @@ interface Client {
   image: string;
   description: string;
   category: CategoryId;
+  title?: string;
 }
 
 const Hero = () => {
@@ -46,549 +47,90 @@ const Hero = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryId>("all");
 
   const clients: Client[] = [
-    {
-      id: 1,
-      name: "Chanel",
-      image: "chanel-logo.svg",
-      description: "Supports publicitaires de luxe et PLV personnalisée.",
-      category: "PLV",
-    },
-    {
-      id: 2,
-      name: "Swarovski",
-      image: "swarovski-logo.svg",
-      description: "Signalétique intérieure et habillage haut de gamme.",
-      category: "Enseigne",
-    },
-    {
-      id: 3,
-      name: "D&G",
-      image: "dg-logo.svg",
-      description: "Impression grand format et habillage événementiel.",
-      category: "Habillage",
-    },
+    { id: 1, name: "Chanel", image: "chanel-logo.svg", description: "Supports publicitaires de luxe et PLV personnalisée.", category: "PLV" },
+    { id: 2, name: "Swarovski", image: "swarovski-logo.svg", description: "Signalétique intérieure et habillage haut de gamme.", category: "Enseigne" },
+    { id: 3, name: "D&G", image: "dg-logo.svg", description: "Impression grand format et habillage événementiel.", category: "Habillage" },
   ];
 
-const projects: Project[] = [
-  // --- CATEGORY: Enseigne ---
-  {
-    id: 1,
-    name: "CBI Project",
-    image: "/Enseigne1.jpg",
-    title: "Identité Visuelle Épurée",
-    description: "Conception et installation d'une façade minimaliste blanche pour le siège social de CBI.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-8",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 2,
-    name: "Blaire Auto",
-    image: "/blaire.jpg",
-    title: "Contraste & Modernité",
-    description: "Réalisation d'une enseigne premium en blanc et gris anthracite pour le showroom Blaire Auto.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 3,
-    name: "Ichrak Centre",
-    image: "/enseigne-3.jpg",
-    title: "Signalétique Lumineuse 3D",
-    description: "Lettres boîtiers en relief aux couleurs vives (blanc et jaune) pour une visibilité optimale.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 4,
-    name: "Luxury Patisserie",
-    image: "/enseigne-4.jpg",
-    title: "Élégance Nocturne",
-    description: "Habillage de façade noir mat avec logo lumineux blanc pour un rendu haut de gamme.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 5,
-    name: "Walls & Flowers",
-    image: "/enseigne-5.jpg",
-    title: "Concept Store Design",
-    description: "Création d'une devanture artistique alliant nature et signalétique moderne.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 6,
-    name: "Biougnach Pro",
-    image: "/enseigne-6.jpg",
-    title: "Sobriété Institutionnelle",
-    description: "Enseigne grand format sur fond noir, soulignant le professionnalisme de la marque Biougnach.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 7,
-    name: "Corporate Signs",
-    image: "/Enseigne-7.jpg",
-    title: "Solutions de Marquage",
-    description: "Enseignes extérieures durables conçues pour résister aux conditions climatiques.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 8,
-    name: "Retail Display",
-    image: "/Enseigne-8.jpg",
-    title: "Attractivité Commerciale",
-    description: "Systèmes lumineux LED basse consommation pour points de vente dynamiques.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 9,
-    name: "Publicité Extérieure",
-    image: "/enseigne-9.jpg",
-    title: "Impact Visuel Majeur",
-    description: "Installation de supports publicitaires grand format avec finitions impeccables.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 10,
-    name: "Enseigne Urbaine",
-    image: "/enseigne-10.jpg",
-    title: "Design & Intégration",
-    description: "Intégration harmonieuse de l'identité visuelle dans l'environnement urbain.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 11,
-    name: "Vision 3D",
-    image: "/enseigne-11.jpg",
-    title: "Conception Technique",
-    description: "Étude et modélisation 3D avant mise en production des structures complexes.",
-    category: "Enseigne",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
+  const projects: Project[] = [
+    // --- CATEGORY: Enseigne ---
+    { id: 1, name: "CBI Project", image: "/Enseigne1.jpg", title: "Identité Visuelle Épurée", description: "Conception et installation d'une façade minimaliste blanche pour le siège social de CBI.", category: "Enseigne", size: "col-span-12 md:col-span-8", imageHeight: "h-[500px]" },
+    { id: 2, name: "Blaire Auto", image: "/blaire.jpg", title: "Contraste & Modernité", description: "Réalisation d'une enseigne premium en blanc et gris anthracite pour le showroom Blaire Auto.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[500px]" },
+    { id: 3, name: "Ichrak Centre", image: "/enseigne-3.jpg", title: "Signalétique Lumineuse 3D", description: "Lettres boîtiers en relief aux couleurs vives (blanc et jaune) pour une visibilité optimale.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 4, name: "Luxury Patisserie", image: "/enseigne-4.jpg", title: "Élégance Nocturne", description: "Habillage de façade noir mat avec logo lumineux blanc pour un rendu haut de gamme.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 5, name: "Walls & Flowers", image: "/enseigne-5.jpg", title: "Concept Store Design", description: "Création d'une devanture artistique alliant nature et signalétique moderne.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 6, name: "Biougnach Pro", image: "/enseigne-6.jpg", title: "Sobriété Institutionnelle", description: "Enseigne grand format on fond noir.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 7, name: "Corporate Signs", image: "/Enseigne-7.jpg", title: "Solutions de Marquage", description: "Enseignes extérieures durables.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 8, name: "Retail Display", image: "/Enseigne-8.jpg", title: "Attractivité Commerciale", description: "Systèmes lumineux LED.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 9, name: "Publicité Extérieure", image: "/enseigne-9.jpg", title: "Impact Visuel Majeur", description: "Installation de supports publicitaires.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 10, name: "Enseigne Urbaine", image: "/enseigne-10.jpg", title: "Design & Intégration", description: "Intégration harmonieuse de l'identité.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 11, name: "Vision 3D", image: "/enseigne-11.jpg", title: "Conception Technique", description: "Étude et modélisation 3D.", category: "Enseigne", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
 
-  // --- CATEGORY: Stand ---
-  {
-    id: 12,
-    name: "Swarovski Expo",
-    image: "/stand-1.jpg",
-    title: "Luxe Éphémère",
-    description: "Conception d'un espace d'exposition prestigieux avec finitions miroirs et éclairage précis.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-8",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 13,
-    name: "Espace Modulaire",
-    image: "/stand-2.jpg",
-    title: "Flexibilité Salon",
-    description: "Structure adaptable pour différents formats de foires et salons professionnels.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 14,
-    name: "Welcome Desk",
-    image: "/stand-3.jpg",
-    title: "Accueil Professionnel",
-    description: "Comptoirs personnalisés alliant ergonomie et design de marque.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 15,
-    name: "Double Deck Stand",
-    image: "/stand-4.jpg",
-    title: "Architecture Événementielle",
-    description: "Stand à étage pour maximiser l'espace et créer une zone VIP exclusive.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 16,
-    name: "Lounge Area",
-    image: "/stand-5.jpg",
-    title: "Espace Networking",
-    description: "Aménagement de zones de détente et d'échange pour visiteurs B2B.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 17,
-    name: "Digital Totem",
-    image: "/stand-6.jpg",
-    title: "Innovation Digitale",
-    description: "Intégration de supports interactifs pour une expérience visiteur augmentée.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 18,
-    name: "Custom Booth",
-    image: "/stand-7.jpg",
-    title: "Design Sur-Mesure",
-    description: "Réalisation de structures uniques reflétant l'ADN de l'exposant.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 19,
-    name: "Brand Experience",
-    image: "/stand-8.jpg",
-    title: "Immersion Totale",
-    description: "Scénographie complète pour transformer un stand en véritable parcours client.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 20,
-    name: "Tech Expo",
-    image: "/stand-9.jpg",
-    title: "High-Tech Display",
-    description: "Présentoirs innovants pour produits technologiques de pointe.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 21,
-    name: "Pavillon Expo",
-    image: "/stand-10.jpg",
-    title: "Structure Grand Format",
-    description: "Gestion logistique et montage de pavillons d'exposition extérieurs.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 22,
-    name: "VIP Corner",
-    image: "/stand-11.jpg",
-    title: "Espace Privatif",
-    description: "Mobilier premium et finitions soignées pour zones de haute réception.",
-    category: "Stand",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
+    // --- CATEGORY: Stand ---
+    { id: 12, name: "Swarovski Expo", image: "/stand-1.jpg", title: "Luxe Éphémère", description: "Conception d'un espace d'exposition prestigieux.", category: "Stand", size: "col-span-12 md:col-span-8", imageHeight: "h-[500px]" },
+    { id: 13, name: "Espace Modulaire", image: "/stand-2.jpg", title: "Flexibilité Salon", description: "Structure adaptable pour salons.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[500px]" },
+    { id: 14, name: "Welcome Desk", image: "/stand-3.jpg", title: "Accueil Professionnel", description: "Comptoirs personnalisés.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 15, name: "Double Deck Stand", image: "/stand-4.jpg", title: "Architecture Événementielle", description: "Stand à étage.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 16, name: "Lounge Area", image: "/stand-5.jpg", title: "Espace Networking", description: "Aménagement de zones de détente.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 17, name: "Digital Totem", image: "/stand-6.jpg", title: "Innovation Digitale", description: "Supports interactifs.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 18, name: "Custom Booth", image: "/stand-7.jpg", title: "Design Sur-Mesure", description: "Structures uniques.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 19, name: "Brand Experience", image: "/stand-8.jpg", title: "Immersion Totale", description: "Scénographie complète.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 20, name: "Tech Expo", image: "/stand-9.jpg", title: "High-Tech Display", description: "Présentoirs innovants.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 21, name: "Pavillon Expo", image: "/stand-10.jpg", title: "Structure Grand Format", description: "Montage de pavillons.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 22, name: "VIP Corner", image: "/stand-11.jpg", title: "Espace Privatif", description: "Mobilier premium.", category: "Stand", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
 
-  // --- CATEGORY: Palissade ---
-  {
-    id: 23,
-    name: "Real Estate Preview",
-    image: "/palissade-1.jpg",
-    title: "Communication de Chantier",
-    description: "Habillage de clôtures de construction pour la promotion de projets immobiliers de luxe.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-8",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 24,
-    name: "Safety Signage",
-    image: "/palissade-2.jpg",
-    title: "Protection & Marketing",
-    description: "Allier sécurité du site et visibilité publicitaire grand format.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 25,
-    name: "Mall Branding",
-    image: "/palissade-3.jpg",
-    title: "Teasing Commercial",
-    description: "Décoration temporaire pour masquer les travaux en centre commercial.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 26,
-    name: "Graphic Wall",
-    image: "/palissade-4.jpg",
-    title: "Décoration Urbaine",
-    description: "Transformation de palissades brutes en supports de communication artistique.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 27,
-    name: "XXL Printing",
-    image: "/palissade-5.jpg",
-    title: "Impact Visuel Géant",
-    description: "Impression numérique haute définition sur bâche tendue PVC.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 28,
-    name: "Fence Wrap",
-    image: "/palissade-6.jpg",
-    title: "Habillage Périmétral",
-    description: "Solutions occultantes personnalisées pour sites industriels et chantiers.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 29,
-    name: "Project Reveal",
-    image: "/palissade-7.jpg",
-    title: "Annonce de Projet",
-    description: "Signalétique informative sur l'évolution des grands travaux urbains.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 30,
-    name: "Advertising Barrier",
-    image: "/palissade-8.jpg",
-    title: "Barrière Publicitaire",
-    description: "Optimisation des surfaces de chantier pour la monétisation visuelle.",
-    category: "Palissade",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
+    // --- CATEGORY: Palissade ---
+    { id: 23, name: "Real Estate Preview", image: "/palissade-1.jpg", title: "Communication de Chantier", description: "Habillage de clôtures.", category: "Palissade", size: "col-span-12 md:col-span-8", imageHeight: "h-[500px]" },
+    { id: 24, name: "Safety Signage", image: "/palissade-2.jpg", title: "Protection & Marketing", description: "Sécurité et visibilité.", category: "Palissade", size: "col-span-12 md:col-span-4", imageHeight: "h-[500px]" },
+    { id: 25, name: "Mall Branding", image: "/palissade-3.jpg", title: "Teasing Commercial", description: "Décoration temporaire mall.", category: "Palissade", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 26, name: "Graphic Wall", image: "/palissade-4.jpg", title: "Décoration Urbaine", description: "Transformation artistique.", category: "Palissade", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 27, name: "XXL Printing", image: "/palissade-5.jpg", title: "Impact Visuel Géant", description: "Impression haute définition.", category: "Palissade", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 28, name: "Fence Wrap", image: "/palissade-6.jpg", title: "Habillage Périmétral", description: "Solutions occultantes.", category: "Palissade", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 29, name: "Project Reveal", image: "/palissade-7.jpg", title: "Annonce de Projet", description: "Signalétique informative.", category: "Palissade", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 30, name: "Advertising Barrier", image: "/palissade-8.jpg", title: "Barrière Publicitaire", description: "Optimisation des surfaces.", category: "Palissade", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
 
-  // --- CATEGORY: PLV ---
-  {
-    id: 31,
-    name: "Chanel Display",
-    image: "/plv-1.jpg",
-    title: "Merchandising de Luxe",
-    description: "Présentoirs sur-mesure respectant les standards internationaux des marques prestigieuses.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-8",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 32,
-    name: "Plexiglass Series",
-    image: "/plv-2.jpg",
-    title: "Clarté & Esthétique",
-    description: "Supports en PMMA découpés au laser pour une présentation de produit épurée.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 33,
-    name: "Perfume Glorifier",
-    image: "/plv-3.jpg",
-    title: "Mise en Lumière",
-    description: "Socles rétro-éclairés pour magnifier les produits cosmétiques en rayon.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 34,
-    name: "Retail Stand",
-    image: "/plv-4.jpg",
-    title: "Meuble de Vente",
-    description: "Conception de mobilier commercial permanent pour l'animation en magasin.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 35,
-    name: "Counter TOP",
-    image: "/plv-5.jpg",
-    title: "Achat de Proximité",
-    description: "Petits supports de comptoir pour booster les ventes impulsives.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 36,
-    name: "Promo Graphics",
-    image: "/plv-6.jpg",
-    title: "Animation Point de Vente",
-    description: "Signalétique promotionnelle amovible pour campagnes saisonnières.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 37,
-    name: "Store Display V2",
-    image: "/plv-7.jpg",
-    title: "Design de Rayon",
-    description: "Organisation visuelle des étagères pour une meilleure lisibilité produit.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 38,
-    name: "Visual Merchandising",
-    image: "/plv-8.jpg",
-    title: "Optimisation de Vente",
-    description: "Solutions de balisage pour guider le choix du consommateur.",
-    category: "PLV",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
+    // --- CATEGORY: PLV ---
+    { id: 31, name: "Chanel Display", image: "/plv-1.jpg", title: "Merchandising de Luxe", description: "Présentoirs sur-mesure.", category: "PLV", size: "col-span-12 md:col-span-8", imageHeight: "h-[500px]" },
+    { id: 32, name: "Plexiglass Series", image: "/plv-2.jpg", title: "Clarté & Esthétique", description: "Supports en PMMA laser.", category: "PLV", size: "col-span-12 md:col-span-4", imageHeight: "h-[500px]" },
+    { id: 33, name: "Perfume Glorifier", image: "/plv-3.jpg", title: "Mise en Lumière", description: "Socles rétro-éclairés.", category: "PLV", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 34, name: "Retail Stand", image: "/plv-4.jpg", title: "Meuble de Vente", description: "Mobilier commercial permanent.", category: "PLV", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 35, name: "Counter TOP", image: "/plv-5.jpg", title: "Achat de Proximité", description: "Supports de comptoir.", category: "PLV", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 36, name: "Promo Graphics", image: "/plv-6.jpg", title: "Animation Point de Vente", description: "Signalétique promotionnelle.", category: "PLV", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 37, name: "Store Display V2", image: "/plv-7.jpg", title: "Design de Rayon", description: "Organisation visuelle.", category: "PLV", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 38, name: "Visual Merchandising", image: "/plv-8.jpg", title: "Optimisation de Vente", description: "Solutions de balisage.", category: "PLV", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
 
-  // --- CATEGORY: Habillage ---
-  {
-    id: 39,
-    name: "Dolce & Gabbana Fleet",
-    image: "/habillage-1.jpg",
-    title: "Marquage Véhicule Premium",
-    description: "Total covering événementiel pour la flotte logistique de grandes maisons.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-8",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 40,
-    name: "Truck Branding",
-    image: "/habillage-10.png",
-    title: "Publicité Itinérante",
-    description: "Habillage de semi-remorques avec vinyle haute résistance pour une visibilité routière.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[500px]",
-  },
-  {
-    id: 41,
-    name: "Office Frosting",
-    image: "/habillage-2.png",
-    title: "Vitrophanie Décorative",
-    description: "Films dépolis pour préserver l'intimité des bureaux tout en restant design.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 42,
-    name: "Building Wrap",
-    image: "/habillage-3.png",
-    title: "Habillage de Façade",
-    description: "Communication monumentale sur façades vitrées avec adhésif micro-perforé.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 43,
-    name: "Wall Murals",
-    image: "/habillage-4.png",
-    title: "Ambiance de Bureau",
-    description: "Personnalisation des espaces de travail avec des graphismes muraux XXL.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 44,
-    name: "Floor Stickers",
-    image: "/habillage-5.png",
-    title: "Signalétique Horizontale",
-    description: "Adhésifs de sol antidérapants pour le guidage en magasin ou entrepôt.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 45,
-    name: "Corporate Interior",
-    image: "/habillage-6.png",
-    title: "Branding Interne",
-    description: "Uniformisation visuelle des locaux aux couleurs de l'entreprise.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 46,
-    name: "In-Store Wrap",
-    image: "/habillage-7.png",
-    title: "Décoration de Rayon",
-    description: "Habillage des mobiliers froids et rayonnages pour opérations promo.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 47,
-    name: "Elevator Branding",
-    image: "/habillage-8.png",
-    title: "Communication Inattendue",
-    description: "Habillage publicitaire des portes d'ascenseur pour un impact garanti.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 48,
-    name: "Safety Floor Wrap",
-    image: "/habillage-10.png",
-    title: "Signalétique de Sécurité",
-    description: "Marquage au sol industriel pour la délimitation des zones à risque.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-  {
-    id: 49,
-    name: "Glass Partition",
-    image: "/habillage-11.png",
-    title: "Design de Cloison",
-    description: "Habillage artistique des cloisons vitrées en open-space.",
-    category: "Habillage",
-    size: "col-span-12 md:col-span-4",
-    imageHeight: "h-[350px]",
-  },
-];
+    // --- CATEGORY: Habillage ---
+    { id: 39, name: "Dolce & Gabbana Fleet", image: "/habillage-1.jpg", title: "Marquage Véhicule Premium", description: "Total covering événementiel.", category: "Habillage", size: "col-span-12 md:col-span-8", imageHeight: "h-[500px]" },
+    { id: 40, name: "Truck Branding", image: "/habillage-10.png", title: "Publicité Itinérante", description: "Habillage de semi-remorques.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[500px]" },
+    { id: 41, name: "Office Frosting", image: "/habillage-2.png", title: "Vitrophanie Décorative", description: "Films dépolis.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 42, name: "Building Wrap", image: "/habillage-3.png", title: "Habillage de Façade", description: "Communication monumentale.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 43, name: "Wall Murals", image: "/habillage-4.png", title: "Ambiance de Bureau", description: "Graphismes muraux XXL.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 44, name: "Floor Stickers", image: "/habillage-5.png", title: "Signalétique Horizontale", description: "Adhésifs de sol.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 45, name: "Corporate Interior", image: "/habillage-6.png", title: "Branding Interne", description: "Uniformisation visuelle.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 46, name: "In-Store Wrap", image: "/habillage-7.png", title: "Décoration de Rayon", description: "Habillage mobiliers.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 47, name: "Elevator Branding", image: "/habillage-8.png", title: "Communication Inattendue", description: "Habillage ascenseur.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 48, name: "Safety Floor Wrap", image: "/habillage-10.png", title: "Signalétique de Sécurité", description: "Marquage au sol industriel.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+    { id: 49, name: "Glass Partition", image: "/habillage-11.png", title: "Design de Cloison", description: "Design en open-space.", category: "Habillage", size: "col-span-12 md:col-span-4", imageHeight: "h-[350px]" },
+  ];
 
   const { tabCounts, categoryCounts } = useMemo(() => {
-    const projectCount = projects.length;
-    const clientCount = clients.length;
+    const pCount = projects.length;
+    const cCount = clients.length;
     const cats: CategoryId[] = ["all", "Enseigne", "Stand", "PLV", "Habillage", "Palissade"];
     const counts: CategoryCounts = {};
 
     cats.forEach(cat => {
       counts[cat] = {
-        projects: cat === "all" ? projectCount : projects.filter(p => p.category === cat).length,
-        clients: cat === "all" ? clientCount : clients.filter(c => c.category === cat).length,
+        projects: cat === "all" ? pCount : projects.filter(p => p.category === cat).length,
+        clients: cat === "all" ? cCount : clients.filter(c => c.category === cat).length,
       };
     });
 
     return {
-      tabCounts: { projects: projectCount, clients: clientCount } as TabCounts,
+      tabCounts: { projects: pCount, clients: cCount } as TabCounts,
       categoryCounts: counts,
     };
-  }, []);
+  }, [projects.length, clients.length]);
 
   const tabs = [
     { id: "projects" as const, name: "Projets", count: tabCounts.projects },
@@ -602,12 +144,10 @@ const projects: Project[] = [
     { id: "Palissade" as const, name: "Palissade" },
     { id: "PLV" as const, name: "PLV" },
     { id: "Habillage" as const, name: "Habillage" },
-    
   ];
 
   return (
     <div className="md:mx-auto 2xl:w-4/5 md:px-16 px-6 py-40">
-      {/* Main Tabs */}
       <div className="flex flex-wrap gap-8 mb-12 items-center">
         {tabs.map((tab, index) => (
           <React.Fragment key={tab.id}>
@@ -625,7 +165,6 @@ const projects: Project[] = [
         ))}
       </div>
 
-      {/* Categories (Plain Text Style) */}
       <div className="flex flex-wrap gap-6 mb-12">
         {categoriesList.map((category) => (
           <motion.button
@@ -643,7 +182,6 @@ const projects: Project[] = [
         ))}
       </div>
 
-      {/* Render Content */}
       <AnimatePresence mode="wait">
         <motion.div
           layout
@@ -662,12 +200,13 @@ const projects: Project[] = [
                 key={item.id}
                 className={`${activeTab === "projects" ? item.size : "col-span-12 md:col-span-4"}`}
               >
-                <div className={`relative ${activeTab === "projects" ? item.imageHeight : "h-64"} mb-4 overflow-hidden rounded-2xl`}>
+                <div className={`relative ${activeTab === "projects" ? item.imageHeight : "h-64"} mb-4 overflow-hidden rounded-2xl bg-gray-50`}>
                   <Image
                     fill
                     src={item.image.startsWith('/') ? item.image : `/${item.image}`}
                     alt={item.name}
                     className="object-cover w-full h-full transition-transform duration-700 hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <h3 className="text-xs font-bold mb-2 text-gray-400 uppercase tracking-widest">/ {item.name}</h3>

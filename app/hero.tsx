@@ -5,24 +5,28 @@ import { motion, useScroll, useTransform, easeOut } from "framer-motion";
 import Link from "next/link";
 
 const Hero = () => {
+  // 1. Solution dyal l-Hydration: n-tsennaw l-component t-mounta f l-client
+  const [mounted, setMounted] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const { scrollY } = useScroll();
 
   useEffect(() => {
-    // Get navigation timing
-    const navigation = performance.getEntriesByType(
-      "navigation"
-    )[0] as PerformanceNavigationTiming;
+    setMounted(true); // 2. Force rendering ghir f l-client side
 
-    // Check if this is a fresh page load or reload
-    if (navigation?.type === "reload" || navigation?.type === "navigate") {
-      setHasAnimated(false);
-    } else {
-      setHasAnimated(true);
+    if (typeof window !== "undefined") {
+      const navigation = performance.getEntriesByType(
+        "navigation"
+      )[0] as PerformanceNavigationTiming;
+
+      if (navigation?.type === "reload" || navigation?.type === "navigate") {
+        setHasAnimated(false);
+      } else {
+        setHasAnimated(true);
+      }
     }
   }, []);
 
-  // Transform video size and width based on scroll with eased transitions
+  // Scroll Transforms
   const videoScale = useTransform(scrollY, [0, 500], [0.9, 1], {
     ease: easeOut,
   });
@@ -33,7 +37,6 @@ const Hero = () => {
     ease: easeOut,
   });
 
-  // Enhanced content animations
   const contentVariants = {
     hidden: {
       opacity: 0,
@@ -88,9 +91,13 @@ const Hero = () => {
     },
   };
 
+  // 3. Ila baki l-page f l-server, rj3 khawi bach n-avoidiw mismatch
+  if (!mounted) {
+    return <div className="min-h-screen bg-white" />; 
+  }
+
   return (
     <div className="flex flex-col items-center">
-      {/* Main Content Section */}
       <motion.div
         className="w-full flex justify-center items-center md:px-0 pt-32 md:pt-40 bg-white"
         initial={hasAnimated ? "visible" : "hidden"}
@@ -107,7 +114,7 @@ const Hero = () => {
             </motion.span>
             <br />
             <motion.span className="inline-block" variants={contentVariants}>
-              par l'impression
+              par l&apos;impression 
             </motion.span>
           </motion.h1>
 
@@ -117,40 +124,34 @@ const Hero = () => {
           >
             Chez CapColor vos projets
             <br />
-            prennent vie avec passion
-          
+             prennent vie avec passion
           </motion.p>
 
-      <motion.div
-  variants={buttonVariants}
-  initial={hasAnimated ? "visible" : "hidden"}
-  animate="visible"
-  className="flex gap-x-3 md:gap-x-6 justify-center mb-10"
->
-  <Link
-    href={"/projects"}
-    className="bg-blue-600 text-white
-    px-6 md:px-8 py-3 rounded-full text-lg font-medium
-    transition-all hover:bg-blue-700 hover:shadow-xl"
-  >
-    Projets
-  </Link>
+          <motion.div
+            variants={buttonVariants}
+            initial={hasAnimated ? "visible" : "hidden"}
+            animate="visible"
+            className="flex gap-x-3 md:gap-x-6 justify-center mb-10"
+          >
+            <Link
+              href={"/projects"}
+              className="bg-blue-600 text-white px-6 md:px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-blue-700 hover:shadow-xl"
+            >
+              Projets
+            </Link>
 
-  <motion.a
-    href="https://meetings.hubspot.com/productizedos/epic-labs?uuid=fca92f30-4111-4445-9498-af335bb840af"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-rose-500 text-white
-    px-6 md:px-8 py-3 rounded-full text-lg
-    font-medium hover:bg-rose-600 transition-all hover:shadow-xl inline-block"
-  >
-    Contact
-  </motion.a>
-</motion.div>
+            <motion.a
+              href="https://meetings.hubspot.com/productizedos/epic-labs?uuid=fca92f30-4111-4445-9498-af335bb840af"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-rose-500 text-white px-6 md:px-8 py-3 rounded-full text-lg font-medium hover:bg-rose-600 transition-all hover:shadow-xl inline-block"
+            >
+              Contact
+            </motion.a>
+          </motion.div>
         </div>
       </motion.div>
 
-      {/* Video Section */}
       <motion.div
         className="flex justify-center w-full md:px-0"
         initial={hasAnimated ? "visible" : "hidden"}
@@ -169,9 +170,9 @@ const Hero = () => {
           <video
             src="/vedio.mp4"
             autoPlay
-
             muted
             loop
+            playsInline
             className="w-full h-full object-cover pointer-events-none"
           />
         </motion.div>

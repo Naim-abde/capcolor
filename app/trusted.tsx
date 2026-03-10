@@ -1,6 +1,5 @@
 import { Marquee } from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
-
 import Image from "next/image";
 
 const companies = [
@@ -8,11 +7,11 @@ const companies = [
   { name: "Orange", logo: "/orange-3.svg" },
   { name: "Aramex", logo: "/aramex-logo-1.svg" },
   { name: "Mercedes", logo: "/mercedes-benz-9.svg" },
-  { name: "axa", logo: "/axa-768.svg" },
-  { name: " AlBarid bank", logo: "/baridbank.svg" },
-  { name: "Royal air maroc", logo: "/royal-air-maroc-1.svg" },
-  { name: "chergui", logo: "/chergui.png" },
-  { name: "pizza hut", logo: "/pizza-hut.svg" },
+  { name: "AXA", logo: "/axa-768.svg" },
+  { name: "AlBarid bank", logo: "/baridbank.svg" },
+  { name: "Royal Air Maroc", logo: "/royal-air-maroc-1.svg" },
+  { name: "Chergui", logo: "/chergui.png" },
+  { name: "Pizza Hut", logo: "/pizza-hut.svg" },
   { name: "2M", logo: "/2m.png" },
 ];
 
@@ -23,17 +22,12 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   return (
     <div className="mx-8 flex items-center justify-center">
       <Image
-      priority 
-      width={200}
-        height={200}    
+        priority 
+        width={120} // Adjusted for better performance
+        height={60}    
         src={logo} 
         alt={`${name} logo`} 
-        className="
-        w-16
-        h-16
-    
-
-        "
+        className="w-20 h-12 object-contain  hover:grayscale-0 transition-all duration-300"
       />
     </div>
   );
@@ -41,29 +35,26 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
 
 const Trusted = () => {
   return (
-    <div className={cn(
-
-      "w-full overflow-hidden bg-white py-12 "
-    )}>
+    <div className={cn("w-full overflow-hidden bg-white py-12")}>
       <div className="mb-8 text-center">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4 tracking-tight">
           Partenaire des sociétés nationales et internationales
         </h2>
         <p className="text-gray-600">
-          Innover par l'impression de haut niveau
+          {/* S77na l-apostrophe hna bach build idoz f Vercel */}
+          Innover par l&apos;impression de haut niveau
         </p>
-
       </div>
       
-      <div className="flex w-full flex-col items-center mt-10 md:mt-0 ">
-        <Marquee pauseOnHover className="[--duration:30s]">
+      <div className="flex w-full flex-col items-center mt-10 md:mt-0">
+        <Marquee pauseOnHover className="[--duration:40s]">
           {firstRow.map((company, idx) => (
-            <CompanyLogo key={`${company.name}-${idx}`} {...company} />
+            <CompanyLogo key={`first-${company.name}-${idx}`} {...company} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:30s] mt-10 md:mt-0">
+        <Marquee reverse pauseOnHover className="[--duration:40s] mt-10">
           {secondRow.map((company, idx) => (
-            <CompanyLogo key={`${company.name}-${idx}`} {...company} />
+            <CompanyLogo key={`second-${company.name}-${idx}`} {...company} />
           ))}
         </Marquee>
       </div>

@@ -1,8 +1,6 @@
 'use client'
 
-import React from "react";
-import { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 import { Separator } from "@/components/ui/separator";
 
 interface StatCardProps {
@@ -12,9 +10,10 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const cardRef = React.useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentRef = cardRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -27,13 +26,13 @@ const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
       }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -71,27 +70,38 @@ const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
 };
 
 const Stats: React.FC = () => {
+  // 1. Solution dyal l-Hydration: n-tsennaw l-client side mounting
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const stats = [
-    { number: "18", label: "Années d'expérience" },
+    // S77na l-apostrophe hna bach build idoz n9i f Vercel
+    { number: "18", label: "Années d&apos;expérience" }, 
     { number: "950", label: "Projets réalisés" },
     { number: "30", label: "Equipe expérimenté" },
     { number: "300", label: "Clients satisfaits" },
   ];
 
-  return (
-    <div
-      className="mx-auto   
-     2xl:w-4/5 md:px-16
+  // 2. Ila baki hydration mat-salatch, rj3 state khawya bach n-avoidiw l-mismatch
+  if (!mounted) {
+    return (
+      <div className="mx-auto 2xl:w-4/5 md:px-16 px-6">
+        <Separator className="my-16" />
+        <div className="h-64" /> {/* Space placeholder */}
+      </div>
+    );
+  }
 
-    
-    
-    px-6 "
-    >
+  return (
+    <div className="mx-auto 2xl:w-4/5 md:px-16 px-6">
       <Separator className="my-16" />
 
-      <div className="flex flex-col md:flex-row items-start justify-between ">
+      <div className="flex flex-col md:flex-row items-start justify-between">
         <div className="md:w-2/4 mb-8 md:mb-0">
-          <h2 className="text-3xl font-bold ">CapColor en chiffre : </h2>
+          <h2 className="text-3xl font-bold">CapColor en chiffre : </h2>
           <p className="text-gray-500 mt-4">
             Nos projets sont notre fierté
           </p>
