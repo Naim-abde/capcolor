@@ -83,7 +83,7 @@ const projects = [
       type:"Décoration"
     },
     {
-      src: "/pizza.jfif",
+      src: "/pizza.jpg",
       name: "pizza",
       logo: "",
       description: "Restauration rapide présente partout",
