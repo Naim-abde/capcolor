@@ -83,7 +83,7 @@ const projects = [
       type:"Décoration"
     },
     {
-      src: "/pizza.jfif",
+      src: "/pizza.jpg",
       name: "pizza",
       logo: "",
       description: "Restauration rapide présente partout",
@@ -93,7 +93,7 @@ const projects = [
       type:"Enseigne"
     },
     {
-      src: "/opera.png",
+      src: "/opera.jpg",
       name: "Opera art gallery",
       logo: "/nord-logo.png",
       description: "Galerie d'art moderne et contemporain",
