@@ -168,7 +168,7 @@ const Hero = () => {
           className="relative w-full md:w-auto"
         >
           <video
-            src="/vedi.mp4"
+            src="/vedio.mp4"
             autoPlay
             muted
             loop
