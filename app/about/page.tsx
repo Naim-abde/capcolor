@@ -29,7 +29,7 @@ const About = () => {
                   Notre Histoire
                 </h2>
                 <h1 className="text-4xl md:text-5xl font-bold text-black leading-tight">
-                  L'impression de haut niveau depuis plus de 15 ans.
+                  L'impression de haut niveau depuis plus de 18 ans.
                 </h1>
               </header>
 
